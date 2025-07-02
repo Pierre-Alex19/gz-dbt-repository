@@ -1,63 +1,64 @@
 version: 2
+
 sources:
-   - name: raw
-     schema: gz_raw_data #où se situe la table dans BQ
-     description: greenwez raw data source
-     tables:
-         - name: sales
-           identifier: raw_gz_sales #Quel est le nom exacte de la table dans BQ
-           description: sales of greewneez / we have one row per product_id found in each order_id
-           columns:
-             - name: "(orders_id || '-' || pdt_id)"
-               description: primary key of the table
-               tests:
-                 - unique
-                 - not_null
-         - name: product
-           identifier: raw_gz_product
-           description: purchase_price by products_id
-           columns:
-             - name: products_id
-               description: primary key of the table
-               tests:
-                 - unique
-         - name: ship
-           identifier: raw_gz_ship
-           description: ship_price by orders_id
-           columns:
-             - name: orders_id
-               description: primary key of the table
-               tests:
-                - unique
-         - name: adwords
-           identifier: raw_gz_adwords
-           description: campaign in adwords
-           columns:
-             - name: "(date_date || '-' || campaign_key)"
-               description: primary key of the table
-               tests:
-                - unique
-         - name: bing
-           identifier: raw_gz_bing
-           description: campaign in bing
-           columns:
-             - name: "(date_date || '-' || campaign_key)"
-               description: primary key of the table
-               tests:
-                - unique
-         - name: criteo
-           identifier: raw_gz_criteo
-           description: campaign in criteo
-           columns:
-             - name: "(date_date || '-' || campaign_key)"
-               description: primary key of the table
-               tests:
-                - unique
-         - name: facebook
-           identifier: raw_gz_facebook
-           description: campaign in facebook
-           columns:
-             - name: "(date_date || '-' || campaign_key)"
-               description: primary key of the table
-               tests:
-                - unique
+  - name: raw
+    schema: gz_raw_data
+    description: greenwez raw data source
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales of greenweez / we have one row per product_id found in each order_id
+        columns:
+          - name: "(orders_id || '-' || pdt_id)"
+            description: primary key of the table
+            tests:
+              - unique
+              - not_null
+      - name: product
+        identifier: raw_gz_product
+        description: purchase_price by products_id
+        columns:
+          - name: products_id
+            description: primary key of the table
+            tests:
+              - unique
+      - name: ship
+        identifier: raw_gz_ship
+        description: ship_price by orders_id
+        columns:
+          - name: orders_id
+            description: primary key of the table
+            tests:
+              - unique
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: campaign in adwords
+        columns:
+          - name: "(date_date || '-' || campaign_key)"
+            description: primary key of the table
+            tests:
+              - unique
+      - name: bing
+        identifier: raw_gz_bing
+        description: campaign in bing
+        columns:
+          - name: "(date_date || '-' || campaign_key)"
+            description: primary key of the table
+            tests:
+              - unique
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: campaign in criteo
+        columns:
+          - name: "(date_date || '-' || campaign_key)"
+            description: primary key of the table
+            tests:
+              - unique
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: campaign in facebook
+        columns:
+          - name: "(date_date || '-' || campaign_key)"
+            description: primary key of the table
+            tests:
+              - unique

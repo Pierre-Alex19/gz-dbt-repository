@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 SELECT
   sales.date_date,
 

@@ -1,11 +1,10 @@
-SELECT
-sales.orders_id,
-sales.date_date,
-sales.revenue,
-sales.quantity,
-sales.quantity * product.purchase_price AS purchase_cost,
-ROUND(sales.revenue - (sales.quantity * product.purchase_price),2) AS margin
-FROM {{ ref('stg_raw__sales') }} AS sales
-JOIN {{ ref('stg_raw__product') }} AS product
-  ON sales.products_id = product.products_id
-ORDER BY date_date DESC
+ SELECT
+     orders_id,
+     date_date,
+     ROUND(SUM(revenue),2) as revenue,
+     ROUND(SUM(quantity),2) as quantity,
+     ROUND(SUM(purchase_cost),2) as purchase_cost,
+     ROUND(SUM(margin),2) as margin
+ FROM {{ ref("int_sales_margin") }}
+ GROUP BY orders_id,date_date
+ ORDER BY orders_id DESC

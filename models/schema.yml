@@ -29,3 +29,35 @@ sources:
                description: primary key of the table
                tests:
                 - unique
+         - name: adwords
+           identifier: raw_gz_adwords
+           description: campaign in adwords
+           columns:
+             - name: "(date_date || '-' || campaign_key)"
+               description: primary key of the table
+               tests:
+                - unique
+         - name: bing
+           identifier: raw_gz_bing
+           description: campaign in bing
+           columns:
+             - name: "(date_date || '-' || campaign_key)"
+               description: primary key of the table
+               tests:
+                - unique
+         - name: criteo
+           identifier: raw_gz_criteo
+           description: campaign in criteo
+           columns:
+             - name: "(date_date || '-' || campaign_key)"
+               description: primary key of the table
+               tests:
+                - unique
+         - name: facebook
+           identifier: raw_gz_facebook
+           description: campaign in facebook
+           columns:
+             - name: "(date_date || '-' || campaign_key)"
+               description: primary key of the table
+               tests:
+                - unique

@@ -40,3 +40,14 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+models:
+  my_new_project:  # ← adapte à ton nom de projet dbt si besoin
+    mart:
+      +materialized: table
+
+models:
+  my_new_project:  # ← adapte ici si besoin
+    mart:
+      +materialized: table    # tous les marts sont des tables par défaut
+      finance:
+        +schema: finance      # tous les modèles du dossier finance vont dans le dataset 'finance'
